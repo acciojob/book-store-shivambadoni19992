@@ -6,36 +6,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookService {
+public class BookService
+{
     
     @Autowired
     BookRepository bookRepository;
 
-    public Book createBook(Book book){
+
+    public Book createBook(Book book)
+    {
         return bookRepository.save(book);
     }
 
-    public Book findBookById(String id){
-        return bookRepository.findBookById(Integer.parseInt(id));
+    public Book findBookById(int id)
+    {
+        return bookRepository.findBookById(id);
     }
 
-    public void deleteBookById(String id){
-        bookRepository.deleteBookById(Integer.parseInt(id));
+    public void deleteBookById(int id)
+    {
+        bookRepository.deleteBookById(id);
     }
 
-    public List<Book> findAllBooks(){
+    public List<Book> findAllBooks()
+    {
+
         return bookRepository.findAll();
     }
 
-    public void deleteAllBooks(){
+    public void deleteAllBooks()
+    {
         bookRepository.deleteAll();
     }
 
-    public List<Book> findBooksByAuthor(String author){
+    public List<Book> findBooksByAuthor(String author)
+    {
         return bookRepository.findBooksByAuthor(author);
     }
 
-    public List<Book> findBooksByGenre(String genre){
+    public List<Book> findBooksByGenre(String genre)
+    {
         return bookRepository.findBooksByGenre(genre);
     }
 }
